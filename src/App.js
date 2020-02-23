@@ -17,15 +17,7 @@ function App() {
     if (query !== "") {
       const url = `https://api.github.com/search/users?q=${query}`;
       setLoading(true);
-      const users = await fetch(url, {
-        headers: {
-          Authorization:
-            "Basic " +
-            btoa(
-              `${process.env.REACT_APP_GITHUB_NAME}:${process.env.REACT_APP_GITHUB_PW}`
-            )
-        }
-      })
+      const users = await fetch(url)
         .then(data => data.json())
         .catch(error => setError(error.message));
 
