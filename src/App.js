@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+import { useDebounce } from "use-debounce";
 import "./App.css";
 import Header from "./components/Header";
 import SearchUsers from "./components/SearchUsers";
@@ -12,6 +13,8 @@ function App() {
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [debouncedQuery] = useDebounce(query, 1000);
+
 
   const fetchUsers = async query => {
     if (query !== "") {
@@ -27,8 +30,8 @@ function App() {
   };
 
   useEffect(() => {
-    fetchUsers(query);
-  }, [query]);
+    fetchUsers(debouncedQuery);
+  }, [debouncedQuery]);
 
   return (
     <div className="App">
@@ -36,7 +39,7 @@ function App() {
         <Header />
         <SearchUsers />
         {users && (
-          <section id="results">
+          <section>
             {error && <div>{error}</div>}
             {loading && !error ? <Loader /> : <UsersList />}
           </section>
