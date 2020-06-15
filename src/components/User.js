@@ -11,10 +11,10 @@ function User({ user }) {
 
   return (
     <li>
-      <a href={user.url} onClick={event => showDetails(event)}>
+      <div className="click" onClick={event => showDetails(event)}>
         <img src={user.avatar_url} alt={user.login} />
-        <span>{user.login}</span>
-      </a>
+        <span className="bold">{user.login}</span>
+      </div>
       {details && <UserDetails id={user.id} user={user} />}
     </li>
   );

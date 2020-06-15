@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Pacifico&display=swap");
 
 * {
   box-sizing: border-box;
@@ -13,7 +13,7 @@
 }
 
 .App-header {
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
 }
 
 .App .search {
@@ -23,7 +23,7 @@
 .App .search input {
   font-size: 1em;
   padding: 0.3em;
-  width:30%;
+  width: 30%;
 }
 
 .App .users-list ul {
@@ -48,7 +48,8 @@
   display: flex;
   align-content: flex-start;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
   text-decoration: none;
 }
 
@@ -58,8 +59,13 @@
   margin-right: 0.3em;
 }
 
+.App .users-list .click {
+  cursor: pointer;
+  text-align: left;
+}
+
 .App .users-list .details {
-  color:#666;
+  color: #666;
   font-size: 0.9em;
   margin: 0.6em 0;
   text-align: left;
@@ -69,7 +75,7 @@
   margin: 0.2em 0 0;
 }
 
-.App .users-list .details .bold {
+.App .users-list .bold {
   font-weight: bold;
 }
 
